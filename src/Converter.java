@@ -3,7 +3,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Converter {
-    HashMap<String, Integer> numSystem;
+    HashMap<String, Integer> values;
     Double[][] multipliers = {
             {1.0, 0.000621371, 3.28084, 39.3701, 1.40607424071991},
             {1609.34, 1.0, 5280.0, 63360.0, 2262.857142857},
@@ -12,16 +12,16 @@ public class Converter {
             {0.7112, 0.0004419190552, 2.333333408, 28.00001512, 1.0}
     };
     public Converter() {
-        numSystem = new HashMap<>();
-        numSystem.put("meters", 0);
-        numSystem.put("miles", 1);
-        numSystem.put("foots", 2);
-        numSystem.put("inches", 3);
-        numSystem.put("arshins", 4);
+        values = new HashMap<>();
+        values.put("meters", 0);
+        values.put("miles", 1);
+        values.put("foots", 2);
+        values.put("inches", 3);
+        values.put("arshins", 4);
     }
 
     double convert(double value, String from, String to){
-        return value * (multipliers[numSystem.get(from)][numSystem.get(to)]);
+        return value * (multipliers[values.get(from)][values.get(to)]);
     }
 
     String getType(){
@@ -29,7 +29,7 @@ public class Converter {
         String type;
         do{
             type = scanner.nextLine().toLowerCase(Locale.ROOT);
-        } while(!numSystem.containsKey(type));
+        } while(!values.containsKey(type));
         return type;
     }
 }
