@@ -30,11 +30,11 @@ public class ConverterTest {
     }
 
     @Test
-    void testConvertFromMilesToArshin() {
+    void testConvertFromMilesToArshins() {
         String from = "miles";
-        String to = "arshin";
-        double value = 1000.0;
-        double result = value * 1144.562608;
+        String to = "arshins";
+        double value = 1000;
+        double result = value * 2262.857142857;
         assertEquals(result, converter.convert(value,from,to));
     }
 }
