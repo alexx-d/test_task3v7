@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Converter {
     HashMap<String, Integer> types;
@@ -20,7 +21,16 @@ public class Converter {
 
 
     double convert(double value, String from, String to){
-        // value * (multipliers[types.get(from)][types.get(to)])
-        return value;
+        return value * (multipliers[types.get(from)][types.get(to)]);
+    }
+
+    String getType(){
+        final Scanner scanner = new Scanner(System.in);
+        String type;
+        do{
+            System.out.println("Enter numbering system: ");
+            type = scanner.nextLine();
+        } while(!types.containsKey(type));
+        return type;
     }
 }
